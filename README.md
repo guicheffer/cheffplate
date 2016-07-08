@@ -11,4 +11,4 @@ ___
 
 ## License
 
-<a href="http://guicheffer.mit-license.org/" target="_blank">MIT License</a> © guicheffer
+<a href="http://guicheffer.mit-license.org/" target="_blank">MIT License</a> © João Guilherme
