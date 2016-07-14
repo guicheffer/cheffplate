@@ -1,0 +1,29 @@
+{
+  "name": "cheffplate",
+  "version": "0.1.0",
+  "description": "Webpack + React+Redux + Karma + Stylus + Custom architecture boilerplate way to build custom apps/websites from zero.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "webpack 'test.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guicheffer/cheffplate.git"
+  },
+  "keywords": [
+    "webpack",
+    "react",
+    "redux",
+    "karma",
+    "stylus",
+    "custom-architeture"
+  ],
+  "author": "João Guilherme",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guicheffer/cheffplate/issues"
+  },
+  "homepage": "https://github.com/guicheffer/cheffplate#readme"
+}

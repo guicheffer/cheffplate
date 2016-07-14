@@ -1,5 +1,5 @@
 # cheffplate
-:beginner: Webpack + React+Redux + Karma + Stylus + Custom architecture boilerplate way to build custom webapps/websites from zero.
+:beginner: Webpack + React+Redux + Karma + Stylus + PostCSS + Custom architecture and compiling boilerplate way to build custom webapps/websites from zero.
 
 ps. Keep in mind: feel free to create an issue, contribute and discuss about it after all I created this boilerplate because of my preference on using it and its technologies applied.
 
