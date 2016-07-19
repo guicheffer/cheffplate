@@ -5,8 +5,11 @@
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
+    "start": "npm i && npm run build",
+    "stop": "rimraf dist",
     "dev": "webpack-dev-server --config ./webpack-dev.config.js --watch --colors --open",
-    "build": "rimraf dist && webpack --config ./webpack-prod.config.js --colors"
+    "build": "npm stop && webpack --config ./webpack-prod.config.js --colors",
+    "test": "echo NO TESTS SPECIFIED"
   },
   "repository": {
     "type": "git",
