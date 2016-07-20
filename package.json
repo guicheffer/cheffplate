@@ -1,9 +1,7 @@
 {
   "name": "cheffplate",
   "version": "0.1.0",
-  "description": "Webpack + React+Redux + Karma + Stylus + PostCSS + Custom architecture and compiling boilerplate way to build custom webapps/websites from zero.",
-  "dependencies": {},
-  "devDependencies": {},
+  "description": "Webpack + React+Redux + Karma + Stylus + PostCSS + Custom architecture and compiler boilerplate way to build custom applications from zero.",
   "scripts": {
     "start": "npm i && npm run build",
     "stop": "rimraf dist",
@@ -11,9 +9,11 @@
     "build": "npm stop && webpack --config ./webpack-prod.config.js --colors",
     "test": "echo NO TESTS SPECIFIED"
   },
+  "dependencies": {},
+  "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/guicheffer/cheffplate.git"
+    "url": "https://github.com/guicheffer/cheffplate.git"
   },
   "keywords": [
     "webpack",
