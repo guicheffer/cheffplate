@@ -1,33 +1,31 @@
 {
   "name": "cheffplate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Webpack + React+Redux + Karma + Stylus + PostCSS + Custom architecture and compiler boilerplate way to build custom applications from zero.",
+  "homepage": "https://github.com/guicheffer/cheffplate#readme",
+  "keywords": [ "webpack", "react", "redux", "karma", "stylus", "postcss" ],
+  "author": "João Guilherme",
+  "main": "src/js/common.js",
+  "license": {
+    "type": "MIT",
+    "url": "http://guicheffer.mit-license.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guicheffer/cheffplate.git"
+  },
+  "bugs": {
+    "email": "hi@guicheffer.me",
+    "url": "https://github.com/guicheffer/cheffplate/issues"
+  },
   "scripts": {
     "start": "npm i && npm run build",
     "stop": "rimraf dist",
     "dev": "webpack-dev-server --config ./webpack-dev.config.js --watch --colors --open",
     "build": "npm stop && webpack --config ./webpack-prod.config.js --colors",
-    "test": "echo NO TESTS SPECIFIED"
+    "test": "karma test",
+    "test:ci": "watch 'npm test' src/"
   },
   "dependencies": {},
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/guicheffer/cheffplate.git"
-  },
-  "keywords": [
-    "webpack",
-    "react",
-    "redux",
-    "karma",
-    "stylus",
-    "postcss",
-    "custom-architeture"
-  ],
-  "author": "João Guilherme",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/guicheffer/cheffplate/issues"
-  },
-  "homepage": "https://github.com/guicheffer/cheffplate#readme"
+  "devDependencies": {}
 }
