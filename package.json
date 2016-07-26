@@ -1,15 +1,16 @@
 {
+  "author": "João Guilherme",
   "name": "cheffplate",
   "version": "0.1.1",
-  "description": "Webpack + React+Redux + Karma + Stylus + PostCSS + Custom architecture and compiler boilerplate way to build custom applications from zero.",
+  "description": "Front End™ compiler boilerplate with Webpack + React+Redux + Stylus + Karma and Custom architecture to build custom apps from zero.",
   "homepage": "https://github.com/guicheffer/cheffplate#readme",
-  "keywords": [ "webpack", "react", "redux", "karma", "stylus", "postcss" ],
-  "author": "João Guilherme",
-  "main": "src/js/common.js",
-  "license": {
-    "type": "MIT",
-    "url": "http://guicheffer.mit-license.org/"
-  },
+  "keywords": [
+    "webpack",
+    "react",
+    "redux",
+    "karma",
+    "stylus"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/guicheffer/cheffplate.git"
@@ -18,14 +19,66 @@
     "email": "hi@guicheffer.me",
     "url": "https://github.com/guicheffer/cheffplate/issues"
   },
+  "main": "./assets/scripts/base.js",
+  "config": {
+    "protocol": "http://",
+    "host": "localhost",
+    "port": 3000,
+    "env": {
+      "dev": "development",
+      "prod": "production"
+    }
+  },
   "scripts": {
+    "dev": "NODE_ENV=$npm_package_config_env_dev ./node_modules/.bin/webpack -d --watch --progress --inline",
+    "build": "NODE_ENV=$npm_package_config_env_prod ./node_modules/.bin/webpack -p",
+    "env": "node -p \"require('./package.json').config;\"",
     "start": "npm i && npm run build",
-    "stop": "rimraf dist",
-    "dev": "webpack-dev-server --config ./webpack-dev.config.js --watch --colors --open",
-    "build": "npm stop && webpack --config ./webpack-prod.config.js --colors",
+    "stop": "rimraf build",
     "test": "karma test",
     "test:ci": "watch 'npm test' src/"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "engines": {
+    "node": ">=5.1.1"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.9.1",
+    "lwip": "git://github.com/chadwatson/lwip.git#fix-node6",
+    "path": "^0.12.7",
+    "react": "^15.2.0",
+    "react-dom": "^15.2.0"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.10.4",
+    "babel-eslint": "^5.0.0",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-class-properties": "^6.11.5",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.11.5",
+    "browser-sync": "^2.13.0",
+    "browser-sync-webpack-plugin": "^1.1.0",
+    "css-loader": "^0.23.1",
+    "eslint": "^3.1.1",
+    "eslint-loader": "^1.4.1",
+    "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-flow-vars": "^0.4.0",
+    "eslint-plugin-import": "^1.10.2",
+    "eslint-plugin-jsx-a11y": "^1.5.5",
+    "estraverse-fb": "^1.3.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "sockjs-client": "^1.1.1",
+    "sprite-webpack-plugin": "^0.3.5",
+    "style-loader": "^0.13.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^2.1.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "license": "MIT"
 }
