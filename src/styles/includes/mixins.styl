@@ -16,7 +16,7 @@ $black = #000
 	Functions [mixins]
   ============================================================================*/
 
-/* -----------------------------------------------------------------------------
+/* .............................................................................
 	[BOX] Make it boxed
 
 	EXAMPLE:
@@ -31,7 +31,7 @@ box(orient, pack, align)
 	vendor('box-align', align)
 	vendor('box-lines', multiple)
 
-/* -----------------------------------------------------------------------------
+/* .............................................................................
 	[REMIFY] Mixing to use pixel converted in rem separate mixin,
 	so it can be used anywhere else;
 
@@ -47,7 +47,7 @@ remify(value)
 		return unit(value, u)
 	}
 
-/* -----------------------------------------------------------------------------
+/* .............................................................................
 	[PLACEHOLDER] Make a placeholder for an input
 
 	EXAMPLE:
@@ -74,7 +74,7 @@ placeholder(color = $black, weight, style = normal)
 		font-weight weight
 		font-style style
 
-/* -----------------------------------------------------------------------------
+/* .............................................................................
 	[VENDOR] Adjust the way which browsers will understand
 	the performance and style adapted
 

@@ -23,7 +23,7 @@ html
 	-webkit-text-size-adjust 100%
 
 body.defaultclass
-	font-size $default-font-size-page
+	font-size $default-font-size-app
 	background-color $white
 	padding 0
 	margin 0
@@ -31,19 +31,15 @@ body.defaultclass
 	position relative
 	overflow-x hidden !important
 
-::selection
-	background $red
-	color $white
-::-moz-selection
+::selection, ::-moz-selection
 	background $red
 	color $white
 
-/* ---------------------------------------
+/* .......................................
 	Usuful
-  --------------------------------------*/
+  ......................................*/
 
 .sprt
-	background-image url('#your-sprite-url')
 	text-indent $text-visually-hidden
 
 .visually-hidden
@@ -62,23 +58,22 @@ p:first-child
 .indent-right
 	text-align right !important
 .accessibility-aid
-width = remify(300px)
-
-clear both
-absolute-center(width)
-height 1px
-width width
-clip rect(1px, 1px, 1px, 1px)
-overflow hidden
-position absolute !important
-margin 0 !important
-&:focus
-	height auto
-	clip auto
-	z-index 50
-	top remify(20px)
-	line-height 49px
-	padding 0 10px
-	background #red
-	font-weight bold
-	text-decoration none
+	clear both
+	height 1px
+	width width
+	clip rect(1px, 1px, 1px, 1px)
+	overflow hidden
+	left 50%
+	position absolute !important
+	margin 0 !important
+	transform translateX(-50%)
+	&:focus
+		height auto
+		clip auto
+		z-index 50
+		top remify(20px)
+		line-height 49px
+		padding 0 10px
+		background $red
+		font-weight bold
+		text-decoration none

@@ -1,0 +1,24 @@
+.sprt-es6-logo {
+  display: inline-block;
+  background-position: 0px 0px;
+  width: 400px;
+  height: 400px;
+  background-image: url('../../../assets/images/sprite-common.png');
+}
+
+.sprt-icon-webpack-in {
+  display: inline-block;
+  background-position: 0px -400px;
+  width: 400px;
+  height: 400px;
+  background-image: url('../../../assets/images/sprite-common.png');
+}
+
+.sprt-MetroUI-YouTube-Alt-icon {
+  display: inline-block;
+  background-position: 0px -800px;
+  width: 512px;
+  height: 512px;
+  background-image: url('../../../assets/images/sprite-common.png');
+}
+

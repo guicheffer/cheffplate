@@ -23,42 +23,45 @@
 	font-family 'Dancing Script'
 	font-style normal
 	font-weight 400
-	src local('Dancing Script'), local('DancingScript'), url('/static/fonts/DIN/DIN-Regular.ttf') format('woff2')
-	unicode-range U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000
+	src local('Dancing Script'), local('DancingScript'), url('../assets/fonts/DancingScript/dancing-script-regular.woff2') format('woff2')
 @font-face
 	font-family 'Dancing Script'
 	font-style normal
 	font-weight 700
-	src local('Dancing Script Bold'), local('DancingScript-Bold'), url('/static/fonts/DIN/DIN-Bold.ttf') format('woff2')
-	unicode-range U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000
+	src local('Dancing Script Bold'), local('DancingScript-Bold'), url('../assets/fonts/DancingScript/dancing-script-bold.woff2') format('woff2')
 
 
 /*==============================================================================
 	Local Variables
   ============================================================================*/
 
-$default-width-window = $default-width-window-container
+$default-width-window = $default-width-window-wrapper
 
 /*==============================================================================
-	General Base Style
+	Base Style
   ============================================================================*/
 
-/* ---------------------------------------
+/* .......................................
 	General Style
-  --------------------------------------*/
+  ......................................*/
 @import 'base/general'
 
-/* ---------------------------------------
+/* .......................................
+	Common sprite
+  ......................................*/
+@import 'includes/sprites/sprite-common.css'
+
+/* .......................................
 	Default
-  --------------------------------------*/
-.container
+  ......................................*/
+.wrapper
 	clear both
 	margin 0 auto
 	width $default-width-window
 
-/* ---------------------------------------
+/* .......................................
 	Divisor
-  --------------------------------------*/
+  ......................................*/
 hr, .divisor
 	height remify(10px)
 	margin-top remify(20px)
@@ -69,25 +72,32 @@ hr, .divisor
 	Content
   ============================================================================*/
 
-/* ---------------------------------------
+/* .......................................
 	Header
-  --------------------------------------*/
+  ......................................*/
 
-// @import 'includes/header'
+/* @import 'includes/header' */
 
-/* ---------------------------------------
+/* .......................................
 	Master
-  --------------------------------------*/
+  ......................................*/
 
-// *update your style
 .content
 	background $blue
+	height 100vh
+	color $white
+	font-weight 700
+	h1
+		font-size remify(25px)
+.img-test
+	sprite($sprt-icon-webpack-in)
+	background-color yellow
 
-/* ---------------------------------------
+/* .......................................
 	Footer
-  --------------------------------------*/
+  ......................................*/
 
-// @import 'includes/footer'
+/* @import 'includes/footer' */
 
 /* =============================================================================
    Media Customized
@@ -105,16 +115,16 @@ hr, .divisor
 	Hacks (only those which are needed)
    =========================================================================== */
 
-/* ---------------------------------------
-	General IEs
-  --------------------------------------*/
+/* .......................................
+	All IEs
+  ......................................*/
 html.ie
 	.accessibility-aid
 		display none
 
-/* ---------------------------------------
+/* .......................................
 	Old IEs
-  --------------------------------------*/
+  ......................................*/
 html.ltie9
 	*:disabled, *.disabled, btn.disabled
 		background $background-btn-default-color !important
