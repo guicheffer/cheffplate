@@ -1,0 +1,18 @@
+{
+  "parser"  : "babel-eslint",
+  "plugins": ["babel"],
+  "rules": {
+    "array-callback-return": [1],
+    "comma-dangle": [1, "never"],
+    "prefer-const": [1],
+    "no-param-reassign": [1, {"props": true}],
+    "object-curly-spacing": [2, "never"],
+    "no-underscore-dangle": [0],
+    "no-useless-constructor": [1],
+    "no-return-assign": [1],
+    "arrow-parens": [2, "as-needed"],
+    "max-len": [2, 120, 2],
+    "new-cap": [0],
+    "babel/new-cap": [1]
+  }
+}
