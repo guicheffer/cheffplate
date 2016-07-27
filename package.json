@@ -2,7 +2,7 @@
   "author": "João Guilherme",
   "name": "cheffplate",
   "version": "0.1.1",
-  "description": "Front End™ compiler boilerplate with Webpack + React+Redux + Stylus + Karma and Custom architecture to build custom apps from zero.",
+  "description": "Front End™ compiler boilerplate with Webpack + React+Redux + Stylus  (w/ flexbox-grid) + Karma and Custom architecture to build custom apps from zero.",
   "homepage": "https://github.com/guicheffer/cheffplate#readme",
   "keywords": [
     "webpack",
@@ -71,6 +71,7 @@
     "estraverse-fb": "^1.3.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "image-webpack-loader": "^2.0.0",
     "sockjs-client": "^1.1.1",
     "sprite-webpack-plugin": "^0.3.5",
     "style-loader": "^0.13.1",
