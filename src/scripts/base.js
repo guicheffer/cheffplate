@@ -1,7 +1,7 @@
 'use strict';
 
 ((function () {
-  const asdvar = 'vaasdr';
+  const asdvar = 'vaaasdasdassdr';
 
   console.log(asdvar);
 }))();

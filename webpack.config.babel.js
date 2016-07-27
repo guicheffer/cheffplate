@@ -73,6 +73,9 @@ let config = {
 
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.EnvironmentPlugin(['NODE_ENV']),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.AggressiveMergingPlugin(),
     new SpriteWebpack({
       'source': resolve(__dirname, 'src/assets/images/spriting/'),
       'imgPath': resolve(__dirname, 'src/assets/images/'),
