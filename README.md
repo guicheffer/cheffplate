@@ -1,5 +1,5 @@
 # cheffplate
-:beginner: Front End™ compiler boilerplate with Webpack + React+Redux + Stylus + Karma and Custom architecture to build custom apps from zero.
+:beginner: Front End™ compiler boilerplate with Webpack + React+Redux + Stylus (w/ flexbox-grid) + Karma and Custom architecture to build custom apps from zero.
 
 ps. Keep in mind: feel free to create an issue, contribute and discuss about it after all I created this boilerplate because of my preference on using it and its technologies applied.
 
