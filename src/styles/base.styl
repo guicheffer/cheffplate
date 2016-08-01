@@ -1,6 +1,6 @@
 /*!
  * "Base for boilerplate"
- * cheffplate! - common/base.styl
+ * cheffplate! - ./base
  * https://github.com/guicheffer/cheffplate
  * Author: Joao Guilherme (@guicheffer)
  * Date: 07/2016
@@ -55,6 +55,8 @@ $default-width-window = $default-width-window-wrapper
 	Default
   ......................................*/
 .wrapper
+	background #448aa0
+	height 100vh
 	clear both
 	margin 0 auto
 	width $default-width-window
@@ -69,26 +71,31 @@ hr, .divisor
 
 
 /*==============================================================================
-	Content
+	Master
   ============================================================================*/
 
 /* .......................................
 	Header
   ......................................*/
 
-/* @import 'includes/header' */
+@import 'base/header'
 
 /* .......................................
-	Master
+	Content
   ......................................*/
 
+.grid
+	outline 1px dotted
 .content
-	background $blue
-	height 100vh
 	color $white
 	font-weight 700
 	h1
 		font-size remify(25px)
+.col
+	border 1px solid #ccc
+	background red
+	display block
+	height auto
 .img-test
 	sprite($sprt-icon-webpack-in)
 	background-color blue
@@ -97,7 +104,7 @@ hr, .divisor
 	Footer
   ......................................*/
 
-/* @import 'includes/footer' */
+// @import 'base/footer'
 
 /* =============================================================================
    Media Customized
