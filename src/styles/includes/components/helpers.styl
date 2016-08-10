@@ -1,0 +1,55 @@
+/*
+ * "Cheffplate helpers components"
+ * cheffplate! - ./includes/components/helpers
+ * https://github.com/guicheffer/cheffplate
+ * Author: Joao Guilherme (@guicheffer)
+ * Date: 07/2016
+ */
+
+/*==============================================================================
+	Objects [models]
+  ============================================================================*/
+
+/* .......................................
+	Col
+  ......................................*/
+.col
+  box-sizing border-box
+  flex 0 0 100%
+  max-width 100%
+  padding 1rem .5rem 0 .5rem
+
+  +variant(no-gutters)
+    padding 0
+
+/* .......................................
+	Row
+  ......................................*/
+.row
+  box-sizing border-box
+  display flex
+  flex 0 1 100%
+  flex-direction row
+  flex-wrap wrap
+  list-style none
+  margin -1rem -.5rem 1rem -.5rem
+  padding 0
+
+  &:last-child
+    margin-bottom 0
+
+  +variant(no-gutters)
+    margin 0
+
+/* .......................................
+	Text
+  ......................................*/
+.text
+  +variant(left)
+    text-align left
+
+  +variant(right)
+    text-align right
+
+  +variant(center)
+    text-align center
