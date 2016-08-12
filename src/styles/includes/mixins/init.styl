@@ -1,0 +1,157 @@
+/*
+ * "Cheffplate main mixins"
+ * cheffplate! - ./includes/mixins/init
+ * https://github.com/guicheffer/cheffplate
+ * Author: Joao Guilherme (@guicheffer)
+ * Date: 07/2016
+ */
+
+/*==============================================================================
+	Local Variables
+  ============================================================================*/
+
+$black = #000
+
+/*==============================================================================
+	Functions [mixins]
+  ============================================================================*/
+
+/* .............................................................................
+	[BOX]
+	- Make it boxed
+
+	*EXAMPLE:
+	> box(orient, pack, align)
+	.............................................................................
+*/
+box(orient, pack, align)
+	display -webkit-box
+	display -moz-box
+	display box
+	vendor('box-orient', orient)
+	vendor('box-pack', pack)
+	vendor('box-align', align)
+	vendor('box-lines', multiple)
+
+
+/* .............................................................................
+	[PLACEHOLDER]
+	- Make a placeholder for an input
+
+	*EXAMPLE:
+	> placeholder($black, 700, italic)
+	.............................................................................
+*/
+placeholder(color = $black, weight, style = normal)
+	::-webkit-input-placeholder
+		color color
+		font-weight weight
+		font-style style
+
+	:-moz-placeholder
+		color color
+		font-weight weight
+		font-style style
+
+	::-moz-placeholder
+		color color
+		font-weight weight
+		font-style style
+
+	:-ms-input-placeholder
+		color color
+		font-weight weight
+		font-style style
+
+
+/* .............................................................................
+	[REMIFY]
+	- Mixing to use pixel converted in rem separate mixin,
+	so it can be used anywhere else;
+
+	*EXAMPLE:
+	> remify(15px)
+	.............................................................................
+*/
+remify(value)
+	u = unit(value)
+
+	if (u is 'px') {
+		return unit(value/16, 'rem')
+	} else {
+		return unit(value, u)
+	}
+
+
+/* .............................................................................
+	[VENDOR]
+	- Adjust the way which browsers will understand
+	the performance and style adapted
+
+	*EXAMPLE:
+	> vendor(box-sizing, 'border-box')
+	.............................................................................
+*/
+vendor(property, value)
+	-webkit-{property} value
+	-moz-osx-{property} value
+	-moz-{property} value
+	-ms-{property} value
+	-o-{property} value
+	{property} value
+
+
+/*==============================================================================
+	Vendor [custom autocomplete]
+  ============================================================================*/
+
+animation()
+	vendor('animation', arguments)
+
+border-radius()
+	vendor('border-radius', arguments)
+
+box-sizing()
+	vendor('box-sizing', arguments)
+
+background-clip()
+	vendor('background-clip', arguments)
+
+box-shadow()
+	vendor('box-shadow', arguments)
+
+box-flex()
+	vendor('box-flex', arguments)
+
+filter()
+	vendor('filter', arguments)
+
+flex()
+	vendor('flex', arguments)
+
+flex-wrap()
+	vendor('flex-wrap', arguments)
+
+flex-grow()
+	vendor('flex-grow', arguments)
+
+flex-direction()
+	vendor('flex-direction', arguments)
+
+flex-basis()
+	vendor('flex-basis', arguments)
+
+text-fill-color()
+	vendor('text-fill-color', arguments)
+
+transition()
+	vendor('transition', arguments)
+
+font-smoothing()
+	vendor('font-smoothing', arguments)
+
+transform()
+	vendor('transform', arguments)
+
+user-select()
+	vendor('user-select', arguments)

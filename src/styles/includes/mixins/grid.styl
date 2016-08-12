@@ -1,0 +1,71 @@
+/*
+ * "Cheffplate grid mixins"
+ * cheffplate! - ./includes/mixins/grid
+ * https://github.com/guicheffer/cheffplate
+ * Author: Joao Guilherme (@guicheffer)
+ * Date: 07/2016
+ */
+
+/*==============================================================================
+	Functions [mixins]
+  ============================================================================*/
+
+/* .............................................................................
+	[BOX]
+	- Make it boxed
+	.............................................................................
+*/
+make-default()
+  &
+    flex-grow 1
+    flex-basis 0
+    max-width 100%
+    padding 1rem .5rem 0 .5rem
+
+/* .............................................................................
+	[make-]
+	- Function to create the offset
+	.............................................................................
+*/
+make-offset($columns)
+  &-offset-0
+    margin-left 0
+  for $number in 1..$columns
+      &-offset-{$number}
+        margin-left (100 / $columns * $number) %
+
+/* .............................................................................
+	[make-]
+	- Function to make a single column
+	.............................................................................
+*/
+make-column($columns)
+  for $number in 1..$columns
+    &{'-'}{$number}
+      width (100 / $columns * $number) %
+      flex none
+
+/* .............................................................................
+	[make-]
+	- Function to create a full column
+	.............................................................................
+*/
+make-grid-column($breakpoint, $columns)
+  make-helpers($breakpoint)
+  .col-{$breakpoint}
+    make-default()
+    make-column($columns)
+    make-offset($columns)
+
+/* .............................................................................
+	[init]
+	- Function to initialize the grid
+	.............................................................................
+*/
+init($breakpoints, $columns)
+  for $breakpoint, $width in $breakpoints
+    if $width == 0
+      make-grid-column($breakpoint, $columns)
+    else
+      @media (min-width: $width)
+        make-grid-column($breakpoint, $columns)
