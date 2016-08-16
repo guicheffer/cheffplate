@@ -65,8 +65,20 @@ let config = {
       },
 
       {
-        test: /\.jpe?g$|\.gif$|\.png$|\.eot$|\.svg$|\.woff$|\.woff2$|\.ttf$|\.wav$|\.mp3$/,
-        loader: "file?name=[path][hash].[ext]"
+        test: /\.eot$|\.woff$|\.woff2$|\.ttf$|\.wav$|\.mp3$/,
+        loader: 'file?name=[path][hash].[ext]'
+      },
+
+      {
+        test: /\.jpe?g$|\.gif$|\.png$|\.svg$/i,
+        loaders: [
+          'file?name=[path][hash].[ext]'
+        ].concat(
+          isDevelopment
+          ? [] : [
+            'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
+          ]
+        )
       }
     ]
   },
