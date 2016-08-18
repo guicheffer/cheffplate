@@ -11,25 +11,20 @@
     "karma",
     "stylus"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/guicheffer/cheffplate.git"
-  },
-  "bugs": {
-    "email": "hi@guicheffer.me",
-    "url": "https://github.com/guicheffer/cheffplate/issues"
-  },
-  "main": "./assets/scripts/base.js",
   "config": {
-    "protocol": "http://",
+    "main": "./src/assets/scripts/base.js",
     "host": "localhost",
+    "protocol": "http://",
     "port": 3000,
+    "path": {
+      "src": "src/",
+      "build": "build/"
+    },
     "env": {
       "dev": "development",
       "prod": "production"
     }
   },
-  "license": "MIT",
   "scripts": {
     "dev": "NODE_ENV=$npm_package_config_env_dev ./node_modules/.bin/webpack -d --watch --progress --inline",
     "build": "NODE_ENV=$npm_package_config_env_prod ./node_modules/.bin/webpack -p",
@@ -37,10 +32,20 @@
     "start": "npm i && npm run build",
     "stop": "rimraf build",
     "test": "karma test",
-    "test:ci": "watch 'npm test' src/"
+    "test:ci": "watch 'npm test' $npm_package_config_path_src"
   },
+  "main": "$npm_package_config_main",
+  "license": "MIT",
   "engines": {
     "node": ">=5.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guicheffer/cheffplate.git"
+  },
+  "bugs": {
+    "email": "hi@guicheffer.me",
+    "url": "https://github.com/guicheffer/cheffplate/issues"
   },
   "dependencies": {
     "babel-polyfill": "^6.9.1",

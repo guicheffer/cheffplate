@@ -11,8 +11,8 @@ const isDevelopment = pkg.config.env.dev === (process.env.NODE_ENV || pkg.config
 
 console.log(
   'Is development?', isDevelopment,
-  '\nSource: ', resolve(__dirname, 'src/'),
-  '\nBuild:', resolve(__dirname, 'build/')
+  '\nSource: ', resolve(__dirname, pkg.config.path.src),
+  '\nBuild:', resolve(__dirname, pkg.config.path.build)
 );
 
 let config = {
@@ -20,7 +20,7 @@ let config = {
   devtool: 'source-map',
   cache: !isDevelopment,
 
-  context: resolve(__dirname, 'src/'),
+  context: resolve(__dirname, pkg.config.path.src),
 
   entry: {
     './scripts/base.js': './scripts/base.js',
@@ -28,7 +28,7 @@ let config = {
   },
 
   output: {
-    path: resolve(__dirname, 'build/'),
+    path: resolve(__dirname, pkg.config.path.build),
     filename: '[name]',
     publicPath: '/'
   },
@@ -44,7 +44,7 @@ let config = {
       {
         test: /(\.js|\.jsx)$/,
         loader: 'eslint-loader',
-        include: path.join(__dirname, 'src/')
+        include: path.join(__dirname, pkg.config.path.src)
       }
     ],
 
@@ -89,9 +89,9 @@ let config = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
     new SpriteWebpack({
-      'source': resolve(__dirname, 'src/assets/images/spriting/'),
-      'imgPath': resolve(__dirname, 'src/assets/images/'),
-      'cssPath': resolve(__dirname, 'src/styles/includes/sprites/'),
+      'source': resolve(__dirname, pkg.config.path.src, 'assets/images/spriting/'),
+      'imgPath': resolve(__dirname, pkg.config.path.src, 'assets/images/'),
+      'cssPath': resolve(__dirname, pkg.config.path.src, 'styles/includes/sprites/'),
       'bundleMode': 'multiple',
       'prefix': 'sprt',
     }),
@@ -126,7 +126,7 @@ let config = {
 /*WebpackDevServer*/
 if (isDevelopment) {
   new WebpackDevServer(webpack(config), {
-    contentBase: resolve(__dirname, 'build/'),
+    contentBase: resolve(__dirname, pkg.config.path.build),
     hot: true,
     debug: true
   }).listen(pkg.config.port, pkg.config.host, function (err, result) {
