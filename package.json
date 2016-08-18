@@ -29,6 +29,7 @@
       "prod": "production"
     }
   },
+  "license": "MIT",
   "scripts": {
     "dev": "NODE_ENV=$npm_package_config_env_dev ./node_modules/.bin/webpack -d --watch --progress --inline",
     "build": "NODE_ENV=$npm_package_config_env_prod ./node_modules/.bin/webpack -p",
@@ -80,6 +81,5 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
-  },
-  "license": "MIT"
+  }
 }
