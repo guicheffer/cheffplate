@@ -1,7 +1,10 @@
 'use strict';
 
+import test from './test/test'
+
 ((function () {
-  const asdvar = 'vaaasdasdassdr';
+  const asdvar = 'vasaasdasdassdr';
 
   console.log(asdvar);
+  console.log(test);
 }))();
