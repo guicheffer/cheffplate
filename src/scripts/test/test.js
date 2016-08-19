@@ -1,3 +1,3 @@
-const test = 'teste';
+const test = 'teste23';
 
 export default test;
