@@ -1,5 +1,5 @@
 {
-  "author": "João Guilherme",
+  "author": "João Guilherme <joao@guicheffer.me> (http://guicheffer.me/)",
   "name": "cheffplate",
   "version": "0.1.1",
   "description": "Front End™ compiler boilerplate with Webpack + React+Redux + Stylus  (w/ flexbox-grid) + Karma and Custom architecture to build custom apps from zero.",
@@ -12,7 +12,8 @@
     "stylus"
   ],
   "config": {
-    "main": "./src/assets/scripts/base.js",
+    "base": "./scripts/base.js",
+    "style": "./styles/base.styl",
     "host": "localhost",
     "protocol": "http://",
     "port": 3000,
@@ -22,16 +23,20 @@
     },
     "env": {
       "dev": "development",
+      "test": "test",
       "prod": "production"
     }
   },
   "scripts": {
-    "dev": "NODE_ENV=$npm_package_config_env_dev ./node_modules/.bin/webpack -d --watch --progress --inline",
-    "build": "NODE_ENV=$npm_package_config_env_prod ./node_modules/.bin/webpack -p",
+    "prestart": "npm stop",
+    "prebuild": "npm stop",
+    "pretest": "rimraf reports",
     "env": "node -p \"require('./package.json').config;\"",
     "start": "npm i && npm run build",
     "stop": "rimraf build",
-    "test": "karma test",
+    "dev": "NODE_ENV=$npm_package_config_env_dev ./node_modules/.bin/webpack --hot --inline --watch --progress",
+    "build": "NODE_ENV=$npm_package_config_env_prod ./node_modules/.bin/webpack -p",
+    "test": "NODE_ENV=$npm_package_config_env_test ./node_modules/.bin/karma test",
     "test:ci": "watch 'npm test' $npm_package_config_path_src"
   },
   "main": "$npm_package_config_main",
@@ -56,12 +61,13 @@
   },
   "devDependencies": {
     "babel": "^6.5.2",
+    "babel-cli": "^6.11.4",
     "babel-core": "^6.10.4",
     "babel-eslint": "^5.0.0",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-class-properties": "^6.11.5",
     "babel-plugin-transform-runtime": "^6.9.0",
-    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.11.5",
@@ -77,6 +83,7 @@
     "estraverse-fb": "^1.3.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.22.0",
     "image-webpack-loader": "^2.0.0",
     "sockjs-client": "^1.1.1",
     "sprite-webpack-plugin": "^0.3.5",
