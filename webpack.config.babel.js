@@ -1,6 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import SpriteWebpack from 'sprite-webpack-plugin';
 
@@ -23,8 +24,8 @@ let config = {
   context: resolve(__dirname, pkg.config.path.src),
 
   entry: {
-    './scripts/base.js': './scripts/base.js',
-    './styles/base.css': './styles/base.styl',
+    './scripts/base.js': pkg.config.base,
+    './styles/base.css': pkg.config.style,
   },
 
   output: {
@@ -37,23 +38,23 @@ let config = {
     extensions: ['', '.js', '.jsx', '.styl'],
   },
 
-  exclude: /(base|includes)/,
-
   module: {
     preLoaders: [
       {
         test: /(\.js|\.jsx)$/,
+        exclude: /(node_modules|build)/,
         loader: 'eslint-loader',
-        include: path.join(__dirname, pkg.config.path.src)
+        include: path.join(__dirname, pkg.config.path.src, 'scripts')
       }
     ],
 
     loaders: [
       {
         test: /(\.js|\.jsx)$/,
+        exclude: /(node_modules|build)/,
         loader: 'babel',
         query: {
-          presets: ['react', 'es2015']
+          presets: ['react', 'es2015', 'stage-0']
         }
       },
 
@@ -84,8 +85,21 @@ let config = {
   },
 
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new HtmlWebpackPlugin({
+      title: pkg.name,
+      inject: false,
+      minify: {
+        collapseInlineTagWhitespace: true,
+        collapseWhitespace: isDevelopment ? false : true,
+        removeAttributeQuotes: true,
+        removeComments: isDevelopment ? false : true,
+      },
+      cache: isDevelopment ? false : true,
+      template: resolve(__dirname, pkg.config.path.src, 'templates/base.html')
+    }),
+    new ExtractTextPlugin('[name]', {allChunks: true}),
     new webpack.EnvironmentPlugin(['NODE_ENV']),
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
     new SpriteWebpack({
@@ -94,13 +108,13 @@ let config = {
       'cssPath': resolve(__dirname, pkg.config.path.src, 'styles/includes/sprites/'),
       'bundleMode': 'multiple',
       'prefix': 'sprt',
-    }),
-    new ExtractTextPlugin('[name]', {allChunks: true})
+    })
   ].concat(
     isDevelopment
     ? [] : [
       new webpack.optimize.UglifyJsPlugin({
         include: /(\.js)$/,
+        exclude: /(node_modules|build)/,
         sourceMap: true,
         output: {
           comments: true
