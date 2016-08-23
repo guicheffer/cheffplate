@@ -37,7 +37,7 @@
     "pretest": "rimraf reports",
     "stop": "npm run clean",
     "start": "npm run start:dev",
-    "start:dev": "NODE_ENV=$npm_package_config_env_dev ./node_modules/.bin/webpack -d --hot --inline --watch --progress",
+    "start:dev": "NODE_ENV=$npm_package_config_env_dev ./node_modules/.bin/webpack -d --inline --watch --progress",
     "start:build": "NODE_ENV=$npm_package_config_env_prod ./node_modules/.bin/webpack -p --progress",
     "test": "NODE_ENV=$npm_package_config_env_test ./node_modules/.bin/karma test",
     "test:ci": "watch 'npm test' $npm_package_config_path_src"
