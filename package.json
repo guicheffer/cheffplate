@@ -30,7 +30,7 @@
   },
   "scripts": {
     "env": "node -p \"require('./package.json').config;\"",
-    "clean": "rimraf build && mkdirbuild",
+    "clean": "rimraf build && mkdir build",
     "prestart": "npm stop",
     "prebuild": "npm stop",
     "prepublish": "npm stop",
