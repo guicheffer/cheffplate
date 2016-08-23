@@ -88,6 +88,7 @@
     "html-webpack-plugin": "^2.22.0",
     "image-webpack-loader": "^2.0.0",
     "react-redux": "^4.4.5",
+    "react-router-redux": "^4.0.5",
     "redux": "^3.5.2",
     "sockjs-client": "^1.1.1",
     "sprite-webpack-plugin": "^0.3.5",
