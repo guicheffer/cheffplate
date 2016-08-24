@@ -20,7 +20,6 @@ let config = {
   debug: isDevelopment,
   devtool: 'source-map',
   cache: !isDevelopment,
-
   context: resolve(__dirname, pkg.config.path.src),
 
   entry: {
@@ -53,6 +52,7 @@ let config = {
         test: /(\.js|\.jsx)$/,
         exclude: /(node_modules|build)/,
         loader: 'babel',
+        include: path.join(__dirname, pkg.config.path.src, 'scripts'),
         query: {
           presets: ['react', 'es2015', 'stage-0']
         }
@@ -90,11 +90,11 @@ let config = {
       inject: false,
       minify: {
         collapseInlineTagWhitespace: true,
-        collapseWhitespace: isDevelopment ? false : true,
+        collapseWhitespace: !isDevelopment,
         removeAttributeQuotes: true,
-        removeComments: isDevelopment ? false : true,
+        removeComments: !isDevelopment,
       },
-      cache: isDevelopment ? false : true,
+      cache: !isDevelopment,
       template: resolve(__dirname, pkg.config.path.src, 'templates/base.html')
     }),
     new ExtractTextPlugin('[name]', {allChunks: true}),
