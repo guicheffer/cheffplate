@@ -1,5 +1,6 @@
 #Structure
 .DS_Store
+src/styles/includes/sprites/*.css
 
 #NPM
 node_modules/
