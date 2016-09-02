@@ -32,13 +32,12 @@
     }
   },
   "scripts": {
-    "favicon": "cp src/assets/favicon.ico $npm_package_config_path_build",
     "env": "node -p \"require('./package.json').config;\"",
+    "favicon": "cp src/assets/images/favicon.ico $npm_package_config_path_build",
     "clean": "rimraf $npm_package_config_path_build && mkdir $npm_package_config_path_build",
-    "prebuild": "npm stop",
-    "prepublish": "npm stop",
-    "pretest": "rimraf reports",
     "stop": "npm run clean",
+    "prestart:build": "npm stop && npm run favicon",
+    "pretest": "rimraf reports",
     "start": "npm run start:build && npm run serve:prod",
     "start:dev": "NODE_ENV=$npm_package_config_env_dev ./node_modules/.bin/webpack -d --inline --watch --progress",
     "start:build": "NODE_ENV=$npm_package_config_env_prod ./node_modules/.bin/webpack -p --progress",
