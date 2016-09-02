@@ -15,12 +15,15 @@
   "config": {
     "base": "./scripts/base.js",
     "style": "./styles/base.styl",
+    "html": "base.html",
     "host": "localhost",
     "protocol": "http://",
     "port": 3000,
+    "server": "./server.js",
     "path": {
       "src": "src/",
-      "build": "build/"
+      "build": "build/",
+      "views": "templates/"
     },
     "env": {
       "dev": "development",
@@ -29,19 +32,21 @@
     }
   },
   "scripts": {
+    "favicon": "cp src/assets/favicon.ico $npm_package_config_path_build",
     "env": "node -p \"require('./package.json').config;\"",
-    "clean": "rimraf build && mkdir build",
+    "clean": "rimraf $npm_package_config_path_build && mkdir $npm_package_config_path_build",
     "prebuild": "npm stop",
     "prepublish": "npm stop",
     "pretest": "rimraf reports",
     "stop": "npm run clean",
-    "start": "npm run start:dev",
+    "start": "npm run start:build && npm run serve:prod",
     "start:dev": "NODE_ENV=$npm_package_config_env_dev ./node_modules/.bin/webpack -d --inline --watch --progress",
     "start:build": "NODE_ENV=$npm_package_config_env_prod ./node_modules/.bin/webpack -p --progress",
+    "serve:prod": "node $npm_package_config_server",
     "test": "NODE_ENV=$npm_package_config_env_test ./node_modules/.bin/karma test",
     "test:ci": "watch 'npm test' $npm_package_config_path_src"
   },
-  "main": "$npm_package_config_main",
+  "main": "$npm_package_config_base",
   "engines": {
     "node": ">=5.1.1"
   },
@@ -82,6 +87,7 @@
     "eslint-plugin-flow-vars": "^0.4.0",
     "eslint-plugin-import": "^1.10.2",
     "eslint-plugin-jsx-a11y": "^1.5.5",
+    "express": "~4.9.8",
     "estraverse-fb": "^1.3.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
