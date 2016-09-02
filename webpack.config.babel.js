@@ -17,9 +17,9 @@ console.log(
 );
 
 let config = {
+  cache: !isDevelopment,
   debug: isDevelopment,
   devtool: 'source-map',
-  cache: !isDevelopment,
   context: resolve(__dirname, pkg.config.path.src),
 
   entry: {
@@ -95,7 +95,7 @@ let config = {
         removeComments: !isDevelopment,
       },
       cache: !isDevelopment,
-      template: resolve(__dirname, pkg.config.path.src, 'templates/base.html')
+      template: resolve(__dirname, pkg.config.path.src, pkg.config.views, pkg.config.html)
     }),
     new ExtractTextPlugin('[name]', {allChunks: true}),
     new webpack.EnvironmentPlugin(['NODE_ENV']),
@@ -113,7 +113,7 @@ let config = {
     isDevelopment
     ? [] : [
       new webpack.optimize.UglifyJsPlugin({
-        include: /(\.js)$/,
+        include: /(\.js|\.jsx)$/,
         exclude: /(node_modules|build)/,
         sourceMap: true,
         output: {
