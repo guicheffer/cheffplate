@@ -3,6 +3,11 @@
 
 ps. Keep in mind: feel free to create an issue, contribute and discuss about it after all I created this boilerplate because of my preference on using it and its technologies applied.
 
+Heroku
+------
+Here we added heroku-prebuild for installing new dev dependencies but you can do it also via config on heroku, here is what you want:
+`heroku config:set NPM_CONFIG_PRODUCTION=false`
+
 att,
 ---
 ...enjoy using cheffplate :smile:
