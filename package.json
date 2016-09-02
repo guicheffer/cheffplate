@@ -32,6 +32,7 @@
     }
   },
   "scripts": {
+    "heroku-prebuild": "npm i --dev",
     "env": "node -p \"require('./package.json').config;\"",
     "favicon": "cp src/assets/images/favicon.ico $npm_package_config_path_build",
     "clean": "rimraf $npm_package_config_path_build && mkdir $npm_package_config_path_build",
