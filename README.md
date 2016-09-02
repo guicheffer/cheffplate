@@ -9,6 +9,7 @@ Here we added heroku-prebuild for installing new dev dependencies but you can do
 `heroku config:set NPM_CONFIG_PRODUCTION=false`
 
 If you want to set your server up from here, just click right below:
+
 <a href="https://heroku.com/deploy">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
