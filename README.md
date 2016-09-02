@@ -4,7 +4,7 @@
 ps. Keep in mind: feel free to create an issue, contribute and discuss about it after all I created this boilerplate because of my preference on using it and its technologies applied.
 
 ### Known Issues
-If you're not able to run ```npm run dev``` or even ```npm run build``` just change variable named "$npm_package_config_envs_dev" to "%npm_package_config_envs_dev%"
+If you're not able to run ```npm run dev``` or even ```npm run build``` just change variable named _"$>%"_ `$npm_package_config_envs_dev` to `%npm_package_config_envs_dev%`
 
 ___
 
