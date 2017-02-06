@@ -96,7 +96,7 @@ let config = {
         removeComments: !isDevelopment,
       },
       cache: !isDevelopment,
-      template: resolve(__dirname, pkg.config.path.src, pkg.config.views, pkg.config.html)
+      template: resolve(__dirname, pkg.config.path.src, pkg.config.path.views, pkg.config.html)
     }),
     new ExtractTextPlugin('[name]', {allChunks: true}),
     new webpack.EnvironmentPlugin(['NODE_ENV']),
